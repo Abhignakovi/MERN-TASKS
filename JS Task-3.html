@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Abhigna</title>
+    <style>
+      body {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        text-align: center;
+      }
+
+      h1 {
+        color: #0f1010;
+      }
+
+      form {
+        margin: 20px auto;
+        max-width: 400px;
+        padding: 20px;
+        border: 1px solid #9a4141;
+        background-color: #aac0ab;
+        border-radius: 5px;
+      }
+
+      .form-group {
+        margin-bottom: 15px;
+        text-align: left;
+      }
+
+      .form-group label,
+      .form-group input[type="number"] {
+        display: inline-block;
+        width: 45%;
+      }
+
+      button {
+        background-color: #211ad6;
+        color: #fff;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 20%;
+        margin-top: 7px;
+      }
+
+      button:hover {
+        background-color: #2e58ee;
+      }
+
+      input[type="text"][readonly] {
+        background-color: #eee;
+      }
+
+      #result {
+        text-align: left;
+        padding-top: 20px;
+        font-weight: bold;
+        color: #b52222;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Multiply and divide</h1>
+
+    <form id="Multiplyanddivide">
+      <div class="form-group">
+        <label for="num1">First number:</label>
+        <input
+          type="number"
+          id="num1"
+          placeholder="Enter the first number"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="num2">Second number:</label>
+        <input
+          type="number"
+          id="num2"
+          placeholder="Enter the second number"
+          required
+        />
+      </div>
+
+      <button type="button" onclick="multiplyNumbers()">Multiply</button>
+      <button type="button" onclick="divideNumbers()">Divide</button>
+
+      <p id="result">The Result is:</p>
+    </form>
+
+    <script>
+      function multiplyNumbers() {
+        const num1 = parseFloat(document.getElementById("num1").value);
+        const num2 = parseFloat(document.getElementById("num2").value);
+        const result = num1 * num2;
+
+        document.getElementById(
+          "result"
+        ).textContent = `The Result is: ${result}`;
+      }
+
+      function divideNumbers() {
+        const num1 = parseFloat(document.getElementById("num1").value);
+        const num2 = parseFloat(document.getElementById("num2").value);
+
+        if (num2 === 0) {
+          document.getElementById("result").textContent =
+            "The Result is: Undefined";
+        } else {
+          const result = num1 / num2;
+          document.getElementById(
+            "result"
+          ).textContent = `The Result is: ${result}`;
+        }
+      }
+    </script>
+  </body>
+</html>

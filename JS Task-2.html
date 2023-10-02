@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Abhigna</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+      }
+
+      h1 {
+        color: #0f1010;
+      }
+
+      form {
+        margin: 20px auto;
+        max-width: 400px;
+        padding: 20px;
+        border: 1px solid #ccc;
+        background-color: #5fae8c;
+        border-radius: 5px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+
+      input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        padding-right: 0px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      button {
+        background-color: #ed3131;
+
+        color: #fff;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #211ad6;
+      }
+
+      input[type="text"][readonly] {
+        background-color: #eee;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Alphabetical order of a String</h1>
+
+    <form id="stringSortingForm">
+      <label for="originalString">Enter a string</label>
+      <input
+        type="text"
+        id="originalString"
+        placeholder="Enter a string"
+        required
+      />
+      <button type="button" onclick="sortAndDisplay()">Arrange</button>
+
+      <label for="sortedString"><br />Alphabetical order of a string</label>
+      <input
+        type="text"
+        id="sortedString"
+        placeholder="Alphabetical order of a string"
+        readonly
+      />
+    </form>
+    <script>
+      function sortStringAlphabetically(inputString) {
+        if (typeof inputString !== "string") {
+          return "Invalid input. Please provide a valid string.";
+        }
+        const sortedString = inputString.split("").sort().join("");
+        return sortedString;
+      }
+
+      function sortAndDisplay() {
+        const originalStringInput = document.getElementById("originalString");
+        const sortedStringInput = document.getElementById("sortedString");
+
+        const originalString = originalStringInput.value;
+        const regex = /^[a-zA-Z]+$/;
+        if (!regex.test(originalString)) {
+          alert("Invalid input. Please provide a string without numbers.");
+          originalStringInput.value = "";
+          sortedStringInput.value = "";
+          return;
+        }
+
+        const sortedString = sortStringAlphabetically(originalString);
+        sortedStringInput.value = sortedString;
+      }
+    </script>
+  </body>
+</html>
